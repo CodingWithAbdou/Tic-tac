@@ -13,6 +13,7 @@ import EventBus from "@/eventBus";
 
 export default {
   name: "GridComponent",
+
   created() {
     EventBus.$on("pop", (rectNumber) => {
       this.rects[rectNumber] = this.activePlayer;
@@ -56,12 +57,14 @@ export default {
       return "turn";
     },
   },
+
   computed: {
     reverseActivePlayer() {
       if (this.activePlayer == "O") return "X";
       else return "O";
     },
   },
+
   watch: {
     gameStatus() {
       if (this.gameStatus == "turn") this.colorStatus = "turnColor";
@@ -69,6 +72,7 @@ export default {
       else this.colorStatus = "drawColor";
     },
   },
+
   data() {
     return {
       activePlayer: "O",
